@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Tax Calc</title>
+        <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 11]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+            <![endif]-->
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="DashboardKit is made using Bootstrap 5 design framework. Download the free admin template & use it for your project.">
+        <meta name="keywords" content="DashboardKit, Dashboard Kit, Dashboard UI Kit, Bootstrap 5, Admin Template, Admin Dashboard, CRM, CMS, Free Bootstrap Admin Template">
+        <meta name="author" content="DashboardKit ">
+
+        <!-- Favicon icon -->
+        <link rel="icon" href="assets/images/favicon.svg" type="image/x-icon">
+
+        <!-- font css -->
+        <link rel="stylesheet" href="assets/fonts/feather.css">
+        <link rel="stylesheet" href="assets/fonts/fontawesome.css">
+        <link rel="stylesheet" href="assets/fonts/material.css">
+
+        <!-- vendor css -->
+        <link rel="stylesheet" href="assets/css/style.css" id="main-style-link">
+
+    </head>
+    <body class="">
+
+        <!-- [ Pre-loader ] start -->
+        <div class="loader-bg">
+            <div class="loader-track">
+                <div class="loader-fill"></div>
+            </div>
+        </div>
+        <!-- [ Pre-loader ] End -->
+
+        <!-- [ Mobile header ] start -->
+        <div class="pc-mob-header pc-header">
+            <div class="pcm-logo">
+                <!-- <img src="assets/images/logo.svg" alt="" class="logo logo-lg"> -->
+                <!-- <img src="assets/images/bbt_logo_medium2.svg" style="height:50px;" alt="" class="logo logo-lg"> -->
+            </div>
+            <div class="pcm-toolbar">
+                <a href="#!" class="pc-head-link" id="mobile-collapse">
+                    <div class="hamburger hamburger--arrowturn">
+                        <div class="hamburger-box">
+                            <div class="hamburger-inner"></div>
+                        </div>
+                    </div>
+                </a>
+                <!-- <a href="#!" class="pc-head-link" id="headerdrp-collapse">
+                    <i data-feather="align-right"></i>
+                </a> -->
+                <a href="#!" class="pc-head-link" id="header-collapse">
+                    <i data-feather="more-vertical"></i>
+                </a>
+            </div>
+        </div>
+        <!-- [ Mobile header ] End -->
+
+        <!-- [ Main Content ] start -->
+        <div class="pc-container">
+            <div class="pcoded-content">
+                <!-- [ Main Content ] start -->
+
+                <div class="row">
+                    <div class="form-group col-3">
+                        <label class="form-label">Negara</label>
+                    </div>
+                    <div class="form-group col-6">
+                        <input class="form-control" name="country" list="datalist_country" placeholder="Search Country ..." autocomplete="off">
+                        <datalist id="datalist_country"></datalist>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-3">
+                        <label class="form-label">Pelabuhan</label>
+                    </div>
+                    <div class="form-group col-6">
+                        <input class="form-control" name="port" list="datalist_port" placeholder="Search Port ..." autocomplete="off">
+                        <datalist id="datalist_port"></datalist>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-3">
+                        <label class="form-label">Barang</label>
+                    </div>
+                    <div class="form-group col-6">
+                        <input class="form-control" name="kode_barang" placeholder="" onkeyup="searchBarang()">
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-3">
+                        <label class="form-label"></label>
+                    </div>
+                    <div class="form-group col-6">
+                        <textarea class="form-control" name="uraian_barang"></textarea>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-3">
+                        <label class="form-label">Harga</label>
+                    </div>
+                    <div class="form-group col-6">
+                        <input class="form-control" name="nilai_komoditas" placeholder="" onchange="calculateNilaiBm()">
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-3">
+                        <label class="form-label">Tarif Bea Masuk</label>
+                    </div>
+                    <div class="form-group col-6">
+                        <input class="form-control" name="bm" placeholder="">
+                    </div>
+                    <div class="col-3">%</div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-3">
+                        <label class="form-label"></label>
+                    </div>
+                    <div class="form-group col-6">
+                        <input class="form-control" name="nilai_bm" placeholder="">
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-12 pull-left">
+                        <button class="btn btn-primary" type="button" onclick="submitData()">Submit</button>
+                    </div>
+                </div>
+
+                <!-- [ Main Content ] end -->
+            </div>
+        </div>
+        <!-- [ Main Content ] end -->
+        
+        <!-- Required Js -->
+        <script src="assets/js/vendor-all.min.js"></script>
+        <script src="assets/js/plugins/bootstrap.min.js"></script>
+        <script src="assets/js/plugins/feather.min.js"></script>
+        <script src="assets/js/pcoded.min.js"></script>
+
+        <!-- Apex Chart -->
+        <script src="assets/js/plugins/apexcharts.min.js"></script>
+        <script>
+        </script>
+
+        <script>
+            var backend_endpoint = "https://localhost:8082/External";
+
+            $( document ).on( "input","*[name=country]", function( e ) {
+                var _this  = $(this);
+                var input  = _this.val();
+                var first_part;
+
+                // console.log(input);
+
+                if(input?.length >= 3) {
+                    $.ajax({
+                        dataType: "json",
+                        type : 'GET',
+                        async: true,
+                        url: `${backend_endpoint}/GetCountries/${input}`,
+                        data: {},
+                        success: function (res) {
+                            console.log(res);
+                            if(res.code == '200'){
+                                $("#datalist_country").empty();
+                                res.data.forEach(row => {
+                                    $("#datalist_country").append(`<option value="${row.kd_negara}">${row.ur_negara}</option>`);
+                                });                          
+
+                                // // Array of Tags
+                                // console.log("DATA FROM SERVER: " + data);
+
+                                // For inspection
+                            }
+                        }  
+                    });
+                }
+            }); 
+
+            $( document ).on( "input","*[name=port]", function( e ) {
+                var _this  = $(this);
+                var input  = _this.val();
+                var first_part;
+
+                // console.log(input);
+                
+                let kd_negara = $('[name="country"]').val();
+
+                console.log('kd_negara', kd_negara);
+
+                if(kd_negara && input?.length >= 3) {
+                    $.ajax({
+                        dataType: "json",
+                        type : 'GET',
+                        async: true,
+                        url: `${backend_endpoint}/GetPorts`,
+                        data: {
+                            kd_negara: kd_negara,
+                            ur_pelabuhan: $('[name="port"]').val()
+                        },
+                        success: function (res) {
+                            console.log(res);
+                            if(res.code == '200'){
+                                $("#datalist_port").empty();
+                                res.data.forEach(row => {
+                                    $("#datalist_port").append(`<option value="${row.kd_pelabuhan}">${row.ur_pelabuhan}</option>`);
+                                });
+                            }
+                        }  
+                    });
+                }
+            }); 
+
+            function searchBarang(){
+                let kode_barang = $('[name="kode_barang"]').val();
+
+                if(kode_barang?.length == 8){
+                    $.ajax({
+                        dataType: "json",
+                        type : 'GET',
+                        async: true,
+                        url: `${backend_endpoint}/GoodsInfo/${kode_barang}`,
+                        data: {},
+                        success: function (res) {
+                            console.log(res);
+                            if(res.code == '200' && res.data.length>0){
+                                $('[name="uraian_barang"]').val('');
+                                $('[name="uraian_barang"]').val(`${res.data[0].sub_header} ${res.data[0].uraian_id}`);
+                                // $("#datalist_port").empty();
+                                // res.data.forEach(row => {
+                                //     $("#datalist_port").append(`<option value="${row.kd_pelabuhan}">${row.ur_pelabuhan}</option>`);
+                                // });
+                            }
+                        }  
+                    });
+                    $.ajax({
+                        dataType: "json",
+                        type : 'GET',
+                        async: true,
+                        url: `${backend_endpoint}/GoodsCost/${kode_barang}`,
+                        data: {},
+                        success: function (res) {
+                            console.log(res);
+                            if(res.code == '200' && res.data.length>0){
+                                $('[name="bm"]').val(res.data[0].bm);
+                                $('[name="nilai_bm"]').val('');
+                                calculateNilaiBm();
+                            }
+                        }  
+                    });
+                }
+            }
+
+            function calculateNilaiBm(){
+                let bm = $('[name="bm"]').val();
+                
+                let nilai_komoditas = parseFloat($('[name="nilai_komoditas"]').val());
+                if(nilai_komoditas > 0){
+                    let nilai_bm = (parseFloat(bm)/100) * nilai_komoditas;
+                    $('[name="nilai_bm"]').val(nilai_bm);
+                }
+            }
+        
+            function submitData(){
+                $.ajax({
+                    dataType: "json",
+                    type : 'POST',
+                    async: true,
+                    url: `${backend_endpoint}/SaveData`,
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({
+                        kode_barang: $('[name="kode_barang"]').val(),
+                        uraian_barang: $('[name="uraian_barang"]').val(),
+                        bm: parseInt($('[name="bm"]').val()),
+                        nilai_komoditas: parseFloat($('[name="nilai_komoditas"]').val()),
+                        nilai_bm: parseFloat($('[name="nilai_bm"]').val())
+                    }),
+                    success: function (res) {
+                        console.log(res);
+                        if(res.code == '200' && res.data.length>0){
+                        }
+                    }  
+                });
+            }
+        </script>
+    </body>
+</html>

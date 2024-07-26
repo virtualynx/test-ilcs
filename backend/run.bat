@@ -1,0 +1,1 @@
+dotnet run --launch-profile https --urls=https://localhost:8082/
